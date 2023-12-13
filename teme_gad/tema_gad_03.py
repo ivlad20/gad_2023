@@ -63,4 +63,3 @@ def verif_int(n):
             return n
 
 
-print(verif_int('2.5'))
