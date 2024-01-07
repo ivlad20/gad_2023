@@ -33,9 +33,16 @@ for index in range(0, len(table_content), 5):
     table_content_c.append(table_content[index])
     table_content_c.append(table_content[index + 1])
     table_content_c.append(table_content[index + 2])
-table_content_c[-1] = ' '
+
+table_content_c[-1] = table_content_c[-2]
+table_content_c[-2] = ' '
+
 table_content_c[-3] = string_clean(table_content_c[-3])
 table_content_c[-4] = string_clean(table_content_c[-4])
 table_content = table_content_c
-
 print(table_content)
+for i in range(0, len(table_content), 3):
+    dataset.append([table_content[i], table_content[i + 1], table_content[i + 2]])
+df = pd.DataFrame(dataset)
+print(df)
+df.to_csv('date_covid.csv', index=False, header=False)
